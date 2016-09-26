@@ -1,0 +1,580 @@
+<html>
+	<header>
+		<!-- Print into PDF with up-to date Google Chrome with 4mm margins for best results. -->
+		<style>
+			table { border : 0; font-family: Calibri; -webkit-print-color-adjust: exact; width: 100%}
+			td {padding-right:18px;}
+			td.landtype { vertical-align: top; font-weight:bold; padding-right:5px;}
+			td.land a { color: black; text-decoration: none;}
+			td.land { padding-left: 20px;}
+			tr.second td { border-bottom: 1px lightgray solid; margin: 0; padding-left:41px; padding-bottom: 5px; }
+			
+			tr.firstsecond td { border-bottom: 1px lightgray solid; margin: 0; padding-bottom: 5px;}					
+			
+			tr td.exp { border-bottom: 1px lightgray solid; margin: 0; padding-bottom: 3px; padding-right:0}					
+			
+			tr.spacer {height:8px}
+			
+			td.land { }
+			td.wu { background: url('http://puu.sh/2NARC') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.ub { background: url('http://puu.sh/2NAQC') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.br { background: url('http://puu.sh/2NAMH') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.rg { background: url('http://puu.sh/2NAPG') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.gw { background: url('http://puu.sh/2NANl') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			                                                                                         
+			td.wb { background: url('http://puu.sh/2NARr') no-repeat left center; background-size: 12px; background-position: 23px 3px;}
+			td.wb_first { background: url('http://puu.sh/2NARr') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.ur { background: url('http://puu.sh/2NAQV') no-repeat left center; background-size: 12px; background-position: 23px 3px;}
+			td.bg { background: url('http://puu.sh/2NAMz') no-repeat left center; background-size: 12px; background-position: 23px 3px;}
+			td.bg_first { background: url('http://puu.sh/2NAMz') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.rw { background: url('http://puu.sh/2NAQo') no-repeat left center; background-size: 12px; background-position: 23px 3px;}
+			td.rw_first { background: url('http://puu.sh/2NAQo') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			td.gu { background: url('http://puu.sh/2NAN3') no-repeat left center; background-size: 12px; background-position: 23px 3px;}
+			td.gu_first { background: url('http://puu.sh/2NAN3') no-repeat left center; background-size: 12px; background-position: 2px 3px;}
+			
+			/*
+			td.wu { background: url('http://wiki.mtgsalvation.com/images/1/13/Manawu.gif') no-repeat left center;}
+			td.ub { background: url('http://wiki.mtgsalvation.com/images/b/bc/Manaub.gif') no-repeat left center;}
+			td.br { background: url('http://wiki.mtgsalvation.com/images/2/2b/Manabr.gif') no-repeat left center;}
+			td.rg { background: url('http://wiki.mtgsalvation.com/images/c/c5/Manarg.gif') no-repeat left center;}			
+			td.gw { background: url('http://wiki.mtgsalvation.com/images/f/f4/Managw.gif') no-repeat left center;}			
+			
+			td.wb { background: url('http://wiki.mtgsalvation.com/images/3/35/Manawb.gif') no-repeat 22px center;}
+			td.ur { background: url('http://wiki.mtgsalvation.com/images/4/4b/Manaur.gif') no-repeat 22px center;}
+			td.bg { background: url('http://wiki.mtgsalvation.com/images/e/e0/Manabg.gif') no-repeat 22px center;}
+			td.rw { background: url('http://wiki.mtgsalvation.com/images/0/00/Manarw.gif') no-repeat 22px center;}
+			td.gu { background: url('http://wiki.mtgsalvation.com/images/8/8f/Managu.gif') no-repeat 22px center;}
+			*/
+			
+			td.exp img { height: 12px }
+			
+			td.price { padding-left:5px !important; }
+			span.price, td.price span { color: gray; font-size: 0.75em; font-weight: normal; }
+			
+			@media print{
+				table { font-size: 11px; }
+			}
+			
+			
+		</style>
+	</header>
+	<!--
+
+Text list to put into pricing tools:
+	
+Tundra
+Underground Sea
+Badlands
+Taiga
+Savannah
+Scrubland
+Volcanic Island
+Bayou
+Plateau
+Tropical Island
+
+Flooded Strand
+Polluted Delta
+Bloodstained Mire
+Wooded Foothills
+Windswept Heath
+Marsh Flats
+Scalding Tarn
+Verdant Catacombs
+Arid Mesa
+Misty Rainforest
+
+Hallowed Fountain
+Watery Grave
+Blood Crypt
+Stomping Ground
+Temple Garden
+Godless Shrine
+Steam Vents
+Overgrown Tomb
+Sacred Foundry
+Breeding Pool
+
+Nimbus Maze
+River of Tears
+Graven Cairns
+Grove of the Burnwillows
+Horizon Canopy
+
+Wanderwine Hub
+Secluded Glen
+Auntie's Hovel
+Gilt-Leaf Palace
+Ancient Amphitheater
+
+Mystic Gate
+Sunken Ruins
+Graven Cairns
+Fire-Lit Thicket
+Wooded Bastion
+Fetid Heath
+Cascade Bluffs
+Twilight Mire
+Rugged Prairie
+Flooded Grove
+
+Celestial Colonnade
+Creeping Tar Pit
+Lavaclaw Reaches
+Raging Ravine
+Stirring Wildwood
+Shambling Vents
+Lumbering Falls
+Wandering Fumarole
+Hissing Quagmire
+Needle Spires
+
+Temple of Enlightenment
+Temple of Deceit
+Temple of Malice
+Temple of Abandon
+Temple of Plenty
+Temple of Silence
+Temple of Epiphany
+Temple of Malady
+Temple of Triumph
+Temple of Mystery
+
+Prarie Stream
+Sunken Hollow
+Smoldering Marsh
+Cinder Glade
+Canopy Vista
+	-->
+	<body>
+		<table cellspacing="0">
+			<tr class="first">
+				<td class="landtype">True duals</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Tundra">Tundra<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Underground+Sea">Underground Sea<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Badlands">Badlands<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Taiga">Taiga<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Savannah">Savannah<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://i35.photobucket.com/albums/d151/bozeema/alphacommon.png"> <!-- R -->
+					<img src="http://i35.photobucket.com/albums/d151/bozeema/betacommon.png">
+					<img src="http://i35.photobucket.com/albums/d151/bozeema/Unlimitedcommon.png">
+					<img src="http://i35.photobucket.com/albums/d151/bozeema/Revisedcommon.png">
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$50 - $300</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Scrubland">Scrubland<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Volcanic+Island">Volcanic Island<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Bayou">Bayou<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Plateau">Plateau<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Tropical+Island">Tropical Island<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Slow fetches <span class="price"><$1</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Flood+Plain">Flood plain<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Bad+River">Bad River<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Rocky+Tar+Pit">Rocky Tar Pit<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Mountain+Valley">Mountain Valley<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Grasslands">Grasslands<a></td>
+				<td class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/commons/f/f5/Miragesymbol.svg"> <!-- U -->
+					<!--<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDI&size=small&rarity=C">-->
+				</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Pain fetches</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Flooded+Strand">Flooded Strand<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Polluted+Delta">Polluted Delta<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Bloodstained+Mire">Bloodstained Mire<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Wooded+Foothills">Wooded Foothills<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Windswept+Heath">Windswept Heath<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://www.powernine.com/cardimages/sets/OnslaughtCommon.png"> <!-- R -->
+					<img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Zendikar_logo.svg"> <!-- R -->
+					<img src="http://puu.sh/byUw0/4b589198e9.png"> <!-- R -->
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$8 - $50</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Marsh+Flats">Marsh Flats<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Scalding+Tarn">Scalding Tarn<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Verdant+Catacombs">Verdant Catacombs<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Arid+Mesa">Arid Mesa<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Misty+Rainforest">Misty Rainforest<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Pain lands</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Adarkar+Wastes">Adarkar Wastes<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Underground+River">Underground River<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Sulfurous+Springs">Sulfurous Springs<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Karplusan+Forest">Karplusan Forest<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Brushland">Brushland<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/commons/d/de/FifthEditionsymbol.svg"> <!-- R -->
+					<img src="http://upload.wikimedia.org/wikipedia/commons/3/3b/SixthEditionSymbol.svg">
+					<img src="http://upload.wikimedia.org/wikipedia/commons/d/d7/SeventhEditionsymbol.svg">
+					<img src="http://www.powernine.com/cardimages/sets/9thEditionCommon.png"><br/>
+					<img src="http://www.powernine.com/cardimages/sets/10thEditionCommon.png">
+					<img src="http://www.powernine.com/cardimages/sets/IceAgeCommon.png">
+					<img src="http://www.powernine.com/cardimages/sets/ApocalypseCommon.png">
+					<img src="http://puu.sh/aw7cZ/40d208c0f3.png">
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$1 - $5</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Caves+of+Koilos">Caves of Koilos<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Shivan+Reef">Shivan Reef<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Llanowar+Wastes">Llanowar Wastes<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Battlefield+Forge">Battlefield Forge<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Yavimaya+Coast">Yavimaya Coast<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Odyssey filters <span class="price">$1 - $3</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Skycloud+Expanse">Skycloud Expanse<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Darkwater+Catacombs">Darkwater Catacombs<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Shadowblood+Ridge">Shadowblood Ridge<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Mossfire+Valley">Mossfire Valley<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Sungrass+Prairie">Sungrass Prairie<a></td>
+				<td class="exp">
+					<img src="http://www.powernine.com/cardimages/sets/OdysseyCommon.png">
+				</td>
+			</tr>
+			
+			<!--<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Tainted lands</td>
+				<td class="land wb_first"><a href="http://www.magiccards.info/query?q=%21Tainted+Field">Tainted Field<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Tainted+Isle">Tainted Isle<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Shadowblood+Ridge">Tainted Peak<a></td>
+				<td class="land bg_first"><a href="http://www.magiccards.info/query?q=%21Mossfire+Valley">Tainted Wood<a></td>
+				<td>&nbsp;</td>
+				<td class="exp">
+					<img src="http://puu.sh/6pwe7.jpg">
+				</td>
+			</tr>-->
+
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Tainted Lands</td>
+				<td class="land">&nbsp;</td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Watery+Grave">Tainted Isle<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Blood+Crypt">Tainted Peak<a></td>
+				<td class="land">&nbsp;</td>
+				<td class="land">&nbsp;</td>
+				<td rowspan="2" class="exp">
+					<img src="http://puu.sh/6pwe7.jpg">
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span><$2</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Tainted+Field">Tainted Field<a></td>				
+				<td class="land">&nbsp;</td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Tainted+Wood">Tainted Wood<a></td>
+				<td class="land">&nbsp;</td>
+				<td class="land">&nbsp;</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Shock lands</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Hallowed+Fountain">Hallowed Fountain<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Watery+Grave">Watery Grave<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Blood+Crypt">Blood Crypt<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Stomping+Ground">Stomping Ground<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Temple+Garden">Temple Garden<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f0/Ravnica_expsym.svg"> <!-- R -->
+					<img src="http://upload.wikimedia.org/wikipedia/en/9/9b/Guildpact_expsym.svg">
+					<img src="http://upload.wikimedia.org/wikipedia/en/c/c7/Dissension_expsym.svg"><br/>
+					<img src="http://images3.wikia.nocookie.net/__cb20130406154419/mtg/images/4/45/Return_to_Ravnica_Common.png">
+					<img src="http://images1.wikia.nocookie.net/__cb20130406154513/mtg/images/6/64/Gatecrash_Common.png">
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$8 - $12</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Godless+Shrine">Godless Shrine<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Steam+Vents">Steam Vents<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Overgrown+Tomb">Overgrown Tomb<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Sacred+Foundry">Sacred Foundry<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Breeding+Pool">Breeding Pool<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Karoo duals</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Azorius+Chancery">Azorius Chancery<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Dimir+Aqueduct">Dimir Aqueduct<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Rakdos+Carnarium">Rakdos Carnarium<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Gruul+Turf">Gruul Turf<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Selesnya+Sanctuary">Selesnya Sanctuary<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f0/Ravnica_expsym.svg"> <!-- C -->
+					<img src="http://upload.wikimedia.org/wikipedia/en/9/9b/Guildpact_expsym.svg">
+					<img src="http://upload.wikimedia.org/wikipedia/en/c/c7/Dissension_expsym.svg">
+					<!--<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDG&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=HOP&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=ARC&size=small&rarity=C"><br/>
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=CMD&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDK&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=PC2&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDJ&size=small&rarity=C">-->
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span><$1</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Orzhov+Basilica">Orzhov Basilica<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Izzet+Boilerworks">Izzet Boilerworks<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Golgari+Rot+Farm">Golgari Rot Farm<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Boros+Garrison">Boros Garrison<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Simic+Growth+Chamber">Simic Growth Chamber<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Storage duals <span class="price"><$1</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Calciform+Pools">Calciform Pools<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Dreadship+Reef">Dreadship Reef<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Molten+Slagheap">Molten Slagheap<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Fungal+Reaches">Fungal Reaches<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Saltcrusted+Stepped">Saltcrusted Steppe<a></td>
+				<td class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/2/2c/TimeSpiral_expsym.svg"> <!-- U -->
+				</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Future-shifted duals <span class="price">$5 - $40</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Nimbus+Maze">Nimbus Maze<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21River+of+Tears">River of Tears<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Graven+Cairns">Graven Cairns<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Grove+of+the+Burnwillows">Grove of the Burnwillows<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Horizon+Canopy">Horizon Canopy<a></td>				
+				<td class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/d/dd/Future_Sight_symbol.svg">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f5/Shadowmoor_expsym.svg">
+				</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Tribal duals</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Wanderwine+Hub">Wanderwine Hub<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Secluded+Glen">Secluded Glen<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Auntie%27s+Hovel">Auntie's Hovel<a></td>
+				<td class="land">&nbsp;</td>
+				<td class="land">&nbsp;</td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f0/Lorwyn%27s_logo.svg"> <!-- R -->
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$1 - $8</span></td>
+				<td class="land">&nbsp;</td>				
+				<td class="land">&nbsp;</td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Gilt-Leaf+Palace">Gilt-Leaf Palace<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Ancient+Amphitheater">Ancient Amphitheater<a></td>
+				<td class="land">&nbsp;</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Shadowmoor filters</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Mystic+Gate">Mystic Gate<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Sunken+Ruins">Sunken Ruins<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Graven+Cairns">Graven Cairns<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Fire-Lit+Thicket">Fire-Lit Thicket<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Wooded+Bastion">Wooded Bastion<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/d/dd/Future_Sight_symbol.svg">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f5/Shadowmoor_expsym.svg"> <!-- R -->
+					<img src="http://upload.wikimedia.org/wikipedia/en/b/b3/Eventide_expsym.svg">
+				</td>
+			</tr>
+			<tr class="second">
+				<td class="price"><span>$5 - $25</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Fetid+Heath">Fetid Heath<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Cascade+Bluffs">Cascade Bluffs<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Twilight+Mire">Twilight Mire<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Rugged+Prairie">Rugged Prairie<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Flooded+Grove">Flooded Grove<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Life-gain taplands <span class="price"><$1</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Sejiri+Refuge">Sejiri Refuge<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Jwar+Isle+Refuge">Jwar Isle Refuge<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Akoum+Refuge">Akoum Refuge<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Kazandu+Refuge">Kazandu Refuge<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Graypelt+Refuge">Graypelt Refuge<a></td>
+				<td class="exp">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Zendikar_logo.svg"> <!-- U -->
+					<!--<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=ARC&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=HOP&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=CMD&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDH&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=PC2&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDI&size=small&rarity=C">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=DDK&size=small&rarity=C">-->
+				</td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Manland duals
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Celestial+Colonnade">Celestial Colonnade<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Creeping+Tar+Pit">Creeping Tar Pit<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Lavaclaw+Reaches">Lavaclaw Reaches<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Raging+Ravine">Raging Ravine<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Stirring+Wildwood">Stirring Wildwood<a></td>
+				<td class="exp" rowspan="2">
+					<img src="http://upload.wikimedia.org/wikipedia/en/8/8b/Worldwake_expansion_symbol.svg"> <!-- R -->
+					<img src="http://puu.sh/mMYir/9291d65a24.png"> <!-- R -->
+					<img src="http://puu.sh/mMXRx/7433c91783.png">
+				</td>
+			</tr>
+			
+			<tr class="second">
+				<td class="price"><span>$1 - $20</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Shambling+Vent">Shambling Vent<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Wandering+Fumarole">Wandering Fumarole<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Hissing+Quagmire">Hissing Quagmire<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Needle+Spires">Needle Spires<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Lumbering+Falls">Lumbering Falls<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Check lands</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Glacial+Fortress">Glacial Fortress<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Drowned+Catacomb">Drowned Catacomb<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Dragonskull+Summit">Dragonskull Summit<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Rootbound+Crag">Rootbound Crag<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Sunpetal+Grove">Sunpetal Grove<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/d/d0/MTG_2010_symbol.svg"> <!-- R -->
+					<img src="http://upload.wikimedia.org/wikipedia/en/0/0c/M11_expsym.jpg">
+					<img src="http://www.cardkingdom.com/media/upload/about/symbols/M12Symbol.jpg"><br/> <!-- NEEDS FIX -->
+					<img src="http://www.cardkingdom.com/media/upload/about/symbols/M13Symbol.jpg"> <!-- NEEDS FIX -->
+					<img src="http://upload.wikimedia.org/wikipedia/en/7/7a/Innistrad_expansion_symbol.svg">
+				</td>
+			</tr>
+
+			<tr class="second">
+				<td class="price"><span>$1 - $5</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Isolated+Chapel">Isolated Chapel<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Sulfur+Falls">Sulfur Falls<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Woodland+Cemetery">Woodland Cemetery<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Clifftop+Retreat">Clifftop Retreat<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Hinterland+Harbor">Hinterland Harbor<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Fast lands <span class="price">$2 - $8</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Seachrome+Coast">Seachrome Coast<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Darkslick+Shores">Darkslick Shores<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Blackcleave+Cliffs">Blackcleave Cliffs<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Copperline+Gorge">Copperline Gorge<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Razorverge+Thicket">Razorverge Thicket<a></td>
+				<td class="exp">
+					<img src="http://upload.wikimedia.org/wikipedia/en/f/f8/Scarsmirrodin_expsym.svg"> <!-- R -->
+				</td>
+			</tr>
+			
+			<!--<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Guildgates</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Azorius+Guildgate">Azorius Guildgate<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Dimir+Guildgate">Dimir Guildgate<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Rakdos+Guildgate">Rakdos Guildgate<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Gruul+Guildgate">Gruul Guildgate<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Selesnya+Guildgate">Selesnya Guildgate<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://images3.wikia.nocookie.net/__cb20130406154419/mtg/images/4/45/Return_to_Ravnica_Common.png"> 
+					<img src="http://images1.wikia.nocookie.net/__cb20130406154513/mtg/images/6/64/Gatecrash_Common.png">
+				</td>
+			</tr>
+
+			<tr class="second">
+				<td class="price"><span><$1</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Orzhov+Guildgate">Orzhov Guildgate<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Izzet+Guildgate">Izzet Guildgate<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Golgari+Guildgate">Golgari Guildgate<a></td>
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Boros+Guildgate">Boros Guildgate<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Simic+Guildgate">Simic Guildgate<a></td>
+			</tr>-->
+
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Scry lands</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Temple+of+Enlightenment">Temple of Enlightenment<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Temple+of+Deceit">Temple of Deceit<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Temple+of+Malice">Temple of Malice<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Temple+of+Abandon">Temple of Abandon<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Temple+of+Plenty">Temple of Plenty<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://puu.sh/4nWYu.jpg"> <!-- R -->
+					<img src="http://puu.sh/6pz8O.jpg"> <!-- R -->
+					<img src="http://puu.sh/aw95M/aa02789536.jpg"> <!-- R -->
+				</td>
+			</tr>
+
+			<tr class="second">
+				<td class="price"><span><$1</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Temple+of+Silence">Temple of Silence<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Temple+of+Epiphany">Temple of Epiphany<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Temple+of+Malady">Temple of Malady<a></td>				
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Temple+of+Triumph">Temple of Triumph<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Temple+of+Mystery">Temple of Mystery<a></td>
+			</tr>
+			
+			<tr class="spacer" />
+			<tr class="first">
+				<td class="landtype">Khans taplands</td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Tranquil+Cove">Tranquil Cove<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Dismal+Backwater">Dismal Backwater<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Bloodfell+Caves">Bloodfell Caves<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Rugged+Highlands">Rugged Highlands<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Blossoming+Sands">Blossoming Sands<a></td>
+				<td rowspan="2" class="exp">
+					<img src="http://puu.sh/byUw0/4b589198e9.png"> 
+				</td>
+			</tr>
+
+			<tr class="second">
+				<td class="price"><span><$1</span></td>
+				<td class="land wb"><a href="http://www.magiccards.info/query?q=%21Scoured+Barrens">Scoured Barrens<a></td>				
+				<td class="land ur"><a href="http://www.magiccards.info/query?q=%21Swiftwater+Cliffs">Swiftwater Cliffs<a></td>				
+				<td class="land bg"><a href="http://www.magiccards.info/query?q=%21Jungle+Hollow">Jungle Hollow<a></td>				
+				<td class="land rw"><a href="http://www.magiccards.info/query?q=%21Wind-Scarred+Crag">Wind-Scarred Crag<a></td>
+				<td class="land gu"><a href="http://www.magiccards.info/query?q=%21Thornwood Falls">Thornwood Falls<a></td>
+			</tr>
+			
+
+			
+			<tr class="spacer" />
+			<tr class="firstsecond">
+				<td class="landtype">Battle lands <span class="price">$1-2</span></td>
+				<td class="land wu"><a href="http://www.magiccards.info/query?q=%21Prarie+Stream">Prarie Stream<a></td>
+				<td class="land ub"><a href="http://www.magiccards.info/query?q=%21Sunken+Hollow">Sunken Hollow<a></td>				
+				<td class="land br"><a href="http://www.magiccards.info/query?q=%21Smoldering+Marsh">Smoldering Marsh<a></td>
+				<td class="land rg"><a href="http://www.magiccards.info/query?q=%21Cinder+Glade">Cinder Glade<a></td>
+				<td class="land gw"><a href="http://www.magiccards.info/query?q=%21Canopy+Vista">Canopy Vista<a></td>
+				<td class="exp">
+					<img src="http://puu.sh/mMYir/9291d65a24.png"> <!-- U -->
+				</td>
+			</tr>
+	</body>
+	
+</html>
